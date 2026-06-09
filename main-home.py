@@ -17,7 +17,7 @@ hautdroite_frame = Frame(window, bg="black")
 hautdroite_frame.grid(row=0, column=1, sticky="ne", padx=(0, 150))
 
 hautdroite2_frame = Frame(window, bg="black")
-hautdroite2_frame.grid(row=0, column=1, sticky="e", padx=(0, 150))
+hautdroite2_frame.grid(row=0, column=1, sticky="e", padx=(0, 50))
 
 bg_label = tk.Label(window, bg="black")
 bg_label.place(x=0, rely=0.5, anchor="w")
@@ -65,6 +65,19 @@ LOOKUP.grid(row=0, column=0, padx=10)
 SECU = Button(hautdroite2_frame, text="Sécurity", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2")
 
 SECU.grid(row=0, column=1, padx=10)
+
+DISCORD = Button(hautdroite2_frame, text="Discord", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2")
+
+DISCORD.grid(row=0, column=2, padx=10)
+
+COVID = Button(hautdroite2_frame, text="Covid", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2")
+
+COVID.grid(row=0, column=3, padx=10)
+
+EXIT = Button(hautdroite2_frame, text="EXIT", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2")
+
+EXIT.grid(row=0, column=3, padx=10)
+
 
 hautdroite_frame.lift()
 
