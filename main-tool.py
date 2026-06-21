@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 from PIL import Image, ImageTk
 import subprocess
+from main_home import home
 
 window = tk.Tk()
 window.title("WHITEWOLF-TOOLS")
@@ -95,12 +96,9 @@ def commencer_suppression():
     animation()
 
 animation()
+  
 
-def click():
-    subprocess.Popen("start cmd /k python main-home.py", shell=True)
-    subprocess.call("taskkill /F /IM python.exe", shell=True)
-
-investigation = Button(gauche_frame, text="INVESTIGUER", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2", command=click)
+investigation = Button(gauche_frame, text="INVESTIGUER", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2", command=home)
 
 
 credits = Label(droite_frame, text="© xql.dev  |  light UI build", bg="black", fg="#bdbdbd", font=("Courier New", 8))
