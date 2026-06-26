@@ -1,3 +1,3 @@
-api_ip = ""
-api_number = ""
-api_dns = ""
+api_ip = "at_L8Ul7zNpos8X8x6iAO0oQtfBuGqbD"
+api_number = "at_L8Ul7zNpos8X8x6iAO0oQtfBuGqbD"
+api_dns = "at_L8Ul7zNpos8X8x6iAO0oQtfBuGqbD"

@@ -2,15 +2,11 @@ from cryptography.fernet import Fernet
 import json
 import os
 import time
+from code.colors import *
 
 
 def passwdmanage():
-    red = "\033[31m"
-    green = "\033[32m"
-    yellow = "\033[33m"
-    blue = "\033[34m"
-    white = "\033[37m"
-    reset = "\033[0m"
+    
     os.system("cls")
     choix = input(f"""{green}
         ██████╗  █████╗ ███████╗███████╗██╗    ██╗ ██████╗ ██████╗ ██████╗ 
@@ -32,11 +28,11 @@ def passwdmanage():
             with open("key.txt", "w", encoding="utf-8") as fichier:
                     fichier.write(key.decode())
     except Exception as e:
-        print("Error", e)
+        print(f"Error {e}")
     try: 
         if choix == "2":
             os.system("cls")
-            ky = input(f"""{white}
+            ky = input(f"""{WHITE}
                 ██╗  ██╗███████╗██╗   ██╗
                 ██║ ██╔╝██╔════╝╚██╗ ██╔╝
                 █████╔╝ █████╗   ╚████╔╝ 
@@ -46,7 +42,7 @@ def passwdmanage():
                 
                 Met ta key : """)
             os.system("cls")
-            add = input(f"""{blue}
+            add = input(f"""{BLUE}
                  █████╗ ██████╗ ██████╗     ██████╗  █████╗ ███████╗███████╗██╗    ██╗ ██████╗ ██████╗ ██████╗ 
                 ██╔══██╗██╔══██╗██╔══██╗    ██╔══██╗██╔══██╗██╔════╝██╔════╝██║    ██║██╔═══██╗██╔══██╗██╔══██╗
                 ███████║██║  ██║██║  ██║    ██████╔╝███████║███████╗███████╗██║ █╗ ██║██║   ██║██████╔╝██║  ██║
@@ -67,14 +63,14 @@ def passwdmanage():
                     fichier.write(encrypted.decode())
             
             except Exception as e:
-                print("Error", e)
+                print(f"Error {e}")
     except Exception as e:
-        print("Error", e)
+        print(f"Error {e}")
 
     try:    
         if choix == "3":
             os.system("cls")
-            ky_list = input(f"""{red}
+            ky_list = input(f"""{RED}
                     ██╗     ██╗███████╗████████╗
                     ██║     ██║██╔════╝╚══██╔══╝
                     ██║     ██║███████╗   ██║   
@@ -94,17 +90,17 @@ def passwdmanage():
                 print("Mdps :", decrypted)
                 
             except Exception as e:
-                print("Error", e)
+                print(f"Error {e}")
 
     except Exception as e:
-        print("Error", e)
+        print(f"Error {e}")
 
     try:
         if choix == "4":
             print("Au-Revoir Frro...")
             time.sleep(2)
     except Exception as e:
-        print("Error", e)
+        print(f"Error {e}")
 
 if __name__ == "__main__":
     passwdmanage()

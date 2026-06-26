@@ -1,6 +1,6 @@
 # WhiteWolf Tools
 
-Suite d'outils en ligne de commande (CLI) pour **OSINT**, **sécurité**, **Discord** et utilitaires divers. Nouveau lanceur Tkinter disponible dans `main-tool.py` — l'interface reste aussi accessible en menu ASCII via `main.py`.
+Suite d'outils en ligne de commande (CLI) pour **OSINT**, **sécurité**, **Discord** et utilitaires divers. Interface en menus ASCII — lance tout depuis `main.py`.
 
 > **Python 3 requis** — Windows recommandé (certaines fonctions utilisent `msvcrt`, Microsoft Edge, `taskkill`, `mss`, etc.).
 
@@ -10,49 +10,35 @@ Suite d'outils en ligne de commande (CLI) pour **OSINT**, **sécurité**, **Disc
 
 ```
 WHITEWOLF-TOOLS/
-├── main.py                        # Point d'entrée CLI — menus et logique interactive
-├── main-tool.py                   # Interface graphique Tkinter d'accueil
+├── main.py                        # Point d'entrée — menus et logique interactive
 ├── api.py                         # Clés API (ipify, apilayer, viewdns) — ignoré par Git
 ├── sites.py                       # Plateformes pour le lookup username
 ├── darkweb.py                     # Liens .onion par catégorie (menu Discord → Darkweb)
 ├── covid.py                       # Script autonome (voir section Covid)
 ├── scanner.py                     # Scan de tokens Discord (navigateurs + app Discord)
 ├── builder.py                     # Build .exe de covid.py (PyArmor + PyInstaller)
-├── Icon.ico                       # Icône du projet (console / packaging)
-├── icon-tool.ico                  # Icône de la fenêtre Tkinter
-├── back.gif                       # Fond animé du launcher Tkinter
+├── Icon.ico                       # Icône du projet
 ├── Virus-explain.md               # Guide rapide pour covid.py + builder
 ├── SECURITY.md                    # Avertissements légaux et responsabilité
 ├── requirements.txt               # Dépendances pip
-├── code/
-│   ├── discordchecker.py          # 4C Checker Discord
-│   ├── tiktokchecker.py           # 4C Checker TikTok
-│   ├── githubchecker.py           # 4C Checker GitHub
-│   ├── genip.py                   # Génération d'IP aléatoires → webhook
-│   ├── Spamtlgrm.py               # Spam bot Telegram via token bot
-│   ├── passwordmanager.py         # Gestionnaire de mots de passe chiffré (Fernet)
-│   └── challange/
-│       ├── firstchallange.py      # Challenge OSINT interactif
-│       └── osint.png              # Image du challenge OSINT
-└── README.MD
+├── image/
+│   └── whitewolf.png              # Image du projet
+├── proxy/                         # Dossier proxy (ressources)
+└── code/
+    ├── discordchecker.py          # 4C Checker Discord
+    ├── tiktokchecker.py           # 4C Checker TikTok
+    ├── githubchecker.py           # 4C Checker GitHub (pseudos disponibles)
+    ├── ipscanner.py               # Scanner de ports (1–65535) via socket
+    ├── nukerdiscord.py            # Discord Nuker bot (WIP)
+    ├── mrrobot.py                 # Script Mr Robot
+    ├── genip.py                   # Génération d'IP aléatoires → webhook
+    ├── Spamtlgrm.py               # Spam bot Telegram via token bot
+    ├── passwordmanager.py         # Gestionnaire de mots de passe chiffré (Fernet)
+    └── challange/
+        ├── firstchallange.py      # Challenge OSINT interactif
+        ├── pentestchallange.py    # Challenge Pentest Web
+        └── osint.png              # Image du challenge OSINT
 ```
-
----
-
-## Interface graphique Tkinter (`main-tool.py`)
-
-Lancez l'interface graphique avec :
-
-```bash
-python main-tool.py
-```
-
-Le lanceur Tkinter affiche un écran d'accueil animé et un bouton **INVESTIGUER**. En cliquant sur ce bouton, il ouvre une fenêtre de terminal et démarre le menu ASCII principal défini dans `main.py`.
-
-### Fichiers associés
-- `main-tool.py` : code du launcher Tkinter
-- `icon-tool.ico` : icône de la fenêtre Tkinter
-- `back.gif` : arrière-plan animé du launcher
 
 ---
 
@@ -65,31 +51,34 @@ python main.py
 │
 ├── 1. LOOKUP
 │   ├── [I] Informations
-│   ├── 1. IP ──────────────────► geo.ipify.org (pays, ville, ISP, VPN)
-│   ├── 2. Number ──────────────► apilayer.net (pays, format, opérateur)
-│   ├── 3. Username ────────────► scan multi-sites (sites.py)
-│   ├── 4. Google ──────────────► ouvre la recherche dans le navigateur
-│   ├── 5. DNS ─────────────────► viewdns.info (abuse contact)
-│   ├── 6. Discord ─────────────► vaultcord (profil par ID)
-│   ├── 7. Github ──────────────► dernier commit public (email auteur, etc.)
-│   ├── 8. Leak Mail ───────────► leakcheck.io → result.json
-│   ├── 9. Archive Web ─────────► archive.org (snapshots Wayback)
-│   ├── 10. 4C Tiktok ──────────► checker TikTok (code/tiktokchecker.py)
-│   ├── 11. 4C Github ──────────► checker GitHub (code/githubchecker.py)
-│   └── 12. Quit
+│   ├── 1.  IP ──────────────────► geo.ipify.org (pays, ville, ISP, VPN)
+│   ├── 2.  Number ──────────────► apilayer.net (pays, format, opérateur)
+│   ├── 3.  Username ────────────► scan multi-sites (sites.py)
+│   ├── 4.  Google ──────────────► ouvre la recherche dans le navigateur
+│   ├── 5.  DNS ─────────────────► viewdns.info (abuse contact)
+│   ├── 6.  Discord ─────────────► vaultcord (profil par ID)
+│   ├── 7.  Github ──────────────► dernier commit public (email auteur, etc.)
+│   ├── 8.  Leak Mail ───────────► leakcheck.io → result.json
+│   ├── 9.  Archive Web ─────────► archive.org (snapshots Wayback)
+│   ├── 10. 4C Tiktok ───────────► checker TikTok (code/tiktokchecker.py)
+│   ├── 11. 4C Github ───────────► checker GitHub (code/githubchecker.py)
+│   ├── 12. Github Check ────────► checker GitHub (code/githubchecker.py)
+│   ├── 13. IP Scanner ──────────► scan de ports 1–65535 (code/ipscanner.py)
+│   └── 14. Quit
 │
 ├── 2. SECURITY
 │   ├── [I] Informations
-│   ├── 1. PROXY (VPN) ─────────► Edge + proxy HTTP (durée min. 10 s)
-│   ├── 2. Gen Password ────────► mot de passe aléatoire (min. 10 car.)
-│   ├── 3. Status Website ──────► temps de réponse HTTP (ms)
-│   ├── 4. Scraper ─────────────► en-têtes HTTP → result.txt
-│   ├── 5. Whois ───────────────► whois du domaine
-│   ├── 6. Gen IP ──────────────► génération d'IP (code/genip.py)
-│   ├── 7. Spam Telegram ───────► bot spam Telegram (code/Spamtlgrm.py)
-│   ├── 8. Passwd Manager ──────► gestionnaire de mots de passe (code/passwordmanager.py)
-│   ├── 9. Osint ───────────────► challenge OSINT (code/challange/firstchallange.py)
-│   └── 10. Quit
+│   ├── 1.  PROXY (VPN) ─────────► Edge + proxy HTTP (durée min. 10 s)
+│   ├── 2.  Gen Password ────────► mot de passe aléatoire (min. 10 car.)
+│   ├── 3.  Status Website ──────► temps de réponse HTTP (ms)
+│   ├── 4.  Scraper ─────────────► en-têtes HTTP → result.txt
+│   ├── 5.  Whois ───────────────► whois du domaine
+│   ├── 6.  Gen IP ──────────────► génération d'IP (code/genip.py)
+│   ├── 7.  Spam Telegram ───────► bot spam Telegram (code/Spamtlgrm.py)
+│   ├── 8.  Passwd Manager ──────► gestionnaire de mots de passe (code/passwordmanager.py)
+│   ├── 9.  Osint ───────────────► challenge OSINT (code/challange/firstchallange.py)
+│   ├── 10. Pentest Web ─────────► challenge Pentest (code/challange/pentestchallange.py)
+│   └── 11. Quit
 │
 ├── 3. DISCORD
 │   ├── [I] Informations
@@ -119,21 +108,31 @@ python main.py
 
 ### Lookup (1)
 
-| Choix       | Entrée           | API / source                        | Sortie                           |
-| ----------- | ---------------- | ----------------------------------- | -------------------------------- |
-| IP          | Adresse IP       | [ipify](https://geo.ipify.org)      | IP, pays, ville, ISP, VPN        |
-| Number      | Numéro E.164     | [apilayer](http://apilayer.net)     | Pays, formats, carrier           |
-| Username    | Pseudo           | 30+ sites (`sites.py`)              | URLs où le profil répond 200     |
-| Google      | Requête          | Navigateur système                  | Onglet Google Search             |
-| DNS         | Domaine          | [viewdns](https://api.viewdns.info) | Abuse contact                    |
-| Discord     | ID utilisateur   | vaultcord.com                       | username, avatar, flags, clan…   |
-| Github      | user + repo      | api.github.com                      | email/nom/date du dernier commit |
-| Leak Mail   | Email            | leakcheck.io                        | `result.json`                    |
-| Archive Web | URL              | archive.org                         | Snapshot Wayback le plus proche  |
-| 4C Tiktok   | Nombre + webhook | Génération de pseudos               | Résultats via webhook            |
-| 4C Github   | Nombre + webhook | Génération d'essais                 | Résultats via webhook            |
+| Choix          | Entrée           | API / source                                | Sortie                            |
+| -------------- | ---------------- | ------------------------------------------- | --------------------------------- |
+| IP             | Adresse IP       | [ipify](https://geo.ipify.org)              | IP, pays, ville, ISP, VPN         |
+| Number         | Numéro E.164     | [apilayer](http://apilayer.net)             | Pays, formats, carrier            |
+| Username       | Pseudo           | 30+ sites (`sites.py`)                      | URLs où le profil répond 200      |
+| Google         | Requête          | Navigateur système                          | Onglet Google Search              |
+| DNS            | Domaine          | [viewdns](https://api.viewdns.info)         | Abuse contact                     |
+| Discord        | ID utilisateur   | vaultcord.com                               | username, avatar, flags, clan…    |
+| Github         | user + repo      | api.github.com                              | email/nom/date du dernier commit  |
+| Leak Mail      | Email            | leakcheck.io                                | `result.json`                     |
+| Archive Web    | URL              | archive.org                                 | Snapshot Wayback le plus proche   |
+| 4C Tiktok      | Nombre + webhook | Génération de pseudos                       | Résultats via webhook             |
+| 4C Github      | Nombre + webhook | Génération d'essais (code/githubchecker.py) | Résultats via webhook             |
+| Github Check   | Pseudo GitHub    | `code/githubchecker.py`                     | Statut disponibilité du pseudo    |
+| **IP Scanner** | Adresse IP       | `socket` (local)                            | Liste des ports ouverts (1–65535) |
 
 **Sites username** (extrait) : GitHub, Reddit, TikTok, Instagram, X, Facebook, Twitch, Steam, GitLab, Medium, Roblox, Chess.com, Linktree, Gravatar… — liste complète dans `sites.py`.
+
+### IP Scanner (`code/ipscanner.py`)
+
+Scanner de ports TCP complet sur une IP cible :
+
+- Teste les **65 535 ports** via `socket.connect_ex` (timeout 100 ms)
+- Affiche uniquement les **ports ouverts**
+- Interface interactive via `questionary`
 
 ### Security (2)
 
@@ -148,6 +147,7 @@ python main.py
 | Spam Telegram  | Bot spam Telegram — demande un token bot + message, envoie 98 fois en boucle via `/start`                                           |
 | Passwd Manager | Gestionnaire de mots de passe chiffré via Fernet (gen clé, ajout mdp chiffré, déchiffrement)                                        |
 | Osint          | Challenge OSINT interactif — trouver une ville, un office de tourisme et une date à partir d'une image (`code/challange/osint.png`) |
+| Pentest Web    | Challenge Pentest Web interactif (`code/challange/pentestchallange.py`)                                                             |
 
 ### Discord (3)
 
@@ -209,6 +209,16 @@ Test en standalone :
 python scanner.py
 ```
 
+### Discord Nuker (`code/nukerdiscord.py`)
+
+> ⚠️ **WIP** — En cours de développement (rate limiting Discord en cours de résolution).
+
+Bot de nuker Discord via token :
+
+- Demande un **token bot** et un **ID de serveur**
+- Récupère la liste des membres du serveur
+- Ban automatiquement tous les membres
+
 ### Password Manager (`code/passwordmanager.py`)
 
 Gestionnaire de mots de passe avec chiffrement **Fernet** (symétrique AES) :
@@ -241,6 +251,10 @@ Challenge de géolocalisation OSINT interactif basé sur une image (`osint.png`)
 
 Score sur 3 points — un point par bonne réponse.
 
+### Challenge Pentest Web (`code/challange/pentestchallange.py`)
+
+Challenge interactif orienté pentest web — accessible depuis Security → 10.
+
 ---
 
 ## Installation
@@ -254,21 +268,23 @@ python main.py
 
 ### Dépendances (`requirements.txt`)
 
-| Package               | Usage                                              |
-| --------------------- | -------------------------------------------------- |
-| `requests`            | Toutes les requêtes HTTP                           |
-| `pynput`              | KeyLogger (menu Covid + `covid.py`)                |
-| `mss`                 | Captures d'écran                                   |
-| `python-telegram-bot` | Spam bot Telegram (`code/Spamtlgrm.py`)            |
-| `python-whois`        | Lookup WHOIS (menu Security)                       |
-| `cryptography`        | Chiffrement Fernet (`code/passwordmanager.py`)     |
-| `pillow`              | Manipulation d'images (`ransom_ware.py`)           |
-| `pywin32`             | Décryptage des tokens (`scanner.py`)               |
-| `pycryptodome`        | Décryptage AES des cookies Chromium (`scanner.py`) |
-| `pyarmor`             | Obfuscation avant build (`builder.py`)             |
-| `pyinstaller`         | Compilation en `.exe` (`builder.py`)               |
+| Package               | Usage                                               |
+| --------------------- | --------------------------------------------------- |
+| `requests`            | Toutes les requêtes HTTP                            |
+| `pynput`              | KeyLogger (menu Covid + `covid.py`)                 |
+| `mss`                 | Captures d'écran                                    |
+| `python-telegram-bot` | Spam bot Telegram (`code/Spamtlgrm.py`)             |
+| `python-whois`        | Lookup WHOIS (menu Security)                        |
+| `cryptography`        | Chiffrement Fernet (`code/passwordmanager.py`)      |
+| `pillow`              | Manipulation d'images                               |
+| `pywin32`             | Décryptage des tokens (`scanner.py`)                |
+| `pycryptodome`        | Décryptage AES des cookies Chromium (`scanner.py`)  |
+| `pyarmor`             | Obfuscation avant build (`builder.py`)              |
+| `pyinstaller`         | Compilation en `.exe` (`builder.py`)                |
+| `questionary`         | Interface de sélection interactive (`ipscanner.py`) |
+| `discord.py`          | Discord Nuker (`code/nukerdiscord.py`)              |
 
-Modules standard utilisés : `os`, `time`, `json`, `webbrowser`, `msvcrt`, `tempfile`, `subprocess`, `random`, `string`, `base64`, `threading`, `sqlite3`, `io`, `tkinter`.
+Modules standard utilisés : `os`, `time`, `json`, `webbrowser`, `msvcrt`, `tempfile`, `subprocess`, `random`, `string`, `base64`, `threading`, `socket`, `sqlite3`, `io`, `tkinter`.
 
 ---
 
@@ -332,16 +348,13 @@ Les autres lookups (Discord, Github, Leak Mail, Google, Archive) n'utilisent pas
 
 ## Avertissement
 
-Utilise ces outils uniquement sur des systèmes et des données **dont tu as l'autorisation**. Les fonctions type keylogger, scan de tokens, spam webhook ou génération de tokens peuvent violer les lois et les conditions d'utilisation des services concernés.
+Utilise ces outils uniquement sur des systèmes et des données **dont tu as l'autorisation**. Les fonctions type keylogger, scan de tokens, spam webhook, nuker ou génération de tokens peuvent violer les lois et les conditions d'utilisation des services concernés.
 
 Consulte [`SECURITY.md`](SECURITY.md) pour les conditions complètes d'utilisation et de responsabilité.
 
 ## Image
 
-<img src="image/image.png" />
-
 <img src="image/whitewolf.png" />
-
 
 ---
 

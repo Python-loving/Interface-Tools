@@ -2,6 +2,7 @@ from tkinter import *
 import tkinter as tk
 from PIL import Image, ImageTk
 import subprocess
+from main_lookup import lookup
 
 def home():
     home = tk.Toplevel()
@@ -37,15 +38,13 @@ def home():
     frame_index = 0
 
     def animate():
-        global frame_index
-
-        print(frame_index)
+        nonlocal frame_index
 
         bg_label.config(image=frames[frame_index])
 
         frame_index = (frame_index + 1) % len(frames)
 
-        home.after(1, animate)
+        home.after(1000, animate)
 
     animate()
 
@@ -61,7 +60,7 @@ def home():
 
     titre.pack()
 
-    LOOKUP = Button(hautdroite2_frame, text="LOOKUP", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2")
+    LOOKUP = Button(hautdroite2_frame, text="LOOKUP", font=("Orbitron", 14, "bold"), fg="white", bg="#111111", activebackground="#222222", activeforeground="white", relief="flat", bd=0, padx=20, pady=10, cursor="hand2", command=lookup)
 
     LOOKUP.grid(row=0, column=0, padx=10)
 

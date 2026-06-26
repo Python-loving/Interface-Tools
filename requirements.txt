@@ -9,3 +9,8 @@ cryptography
 pillow
 pywin32
 pycryptodome
+pypresence
+holehe
+whois
+pyfiglet
+instagrapi

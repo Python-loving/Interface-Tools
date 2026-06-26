@@ -48,7 +48,7 @@ def animate():
 
     frame_index = (frame_index + 1) % len(frames)
 
-    window.after(1, animate)
+    window.after(1000, animate)
 
 
 animate()
@@ -87,7 +87,7 @@ def animation():
         if index <= 0:
             suppression = False
 
-    window.after(1, animation)
+    window.after(1000, animation)
 
 
 def commencer_suppression():
